@@ -19,6 +19,16 @@
       --text: #1a1a1a;
       --text-muted: #888888;
       --border: #ebebeb;
+      --hover-bg: #fafafa;
+      --transition: 0.3s ease;
+    }
+
+    [data-theme="dark"] {
+      --bg: #111111;
+      --text: #e8e8e8;
+      --text-muted: #777777;
+      --border: #2a2a2a;
+      --hover-bg: #1a1a1a;
     }
 
     body {
@@ -27,7 +37,37 @@
       color: var(--text);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
+      transition: background-color var(--transition), color var(--transition);
     }
+
+    /* Dark mode toggle */
+    .theme-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--text);
+      transition: border-color var(--transition), color var(--transition), transform 0.2s ease;
+      z-index: 100;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+    }
+
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    [data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+    [data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
     /* Header */
     header {
@@ -44,7 +84,16 @@
       margin-bottom: 1rem;
     }
 
-    header p {
+    .tagline {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.2rem;
+    }
+
+    header p.label {
       color: var(--text-muted);
       font-size: 0.85rem;
       font-weight: 400;
@@ -75,12 +124,20 @@
 
     /* Menu Item */
     .menu-item {
-      padding: 1.1rem 0;
+      padding: 1.1rem 0.5rem;
       border-bottom: 1px solid var(--border);
+      border-radius: 4px;
+      transition: background-color 0.2s ease, padding-left 0.2s ease;
+      cursor: default;
     }
 
     .menu-item:first-of-type {
       border-top: 1px solid var(--border);
+    }
+
+    .menu-item:hover {
+      background-color: var(--hover-bg);
+      padding-left: 1rem;
     }
 
     .item-name {
@@ -95,6 +152,30 @@
       font-weight: 400;
     }
 
+    /* Scroll animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger delays */
+    .menu-item:nth-child(1) { transition-delay: 0s; }
+    .menu-item:nth-child(2) { transition-delay: 0.05s; }
+    .menu-item:nth-child(3) { transition-delay: 0.1s; }
+    .menu-item:nth-child(4) { transition-delay: 0.15s; }
+    .menu-item:nth-child(5) { transition-delay: 0.2s; }
+    .menu-item:nth-child(6) { transition-delay: 0.25s; }
+    .menu-item:nth-child(7) { transition-delay: 0.3s; }
+    .menu-item:nth-child(8) { transition-delay: 0.35s; }
+    .menu-item:nth-child(9) { transition-delay: 0.4s; }
+    .menu-item:nth-child(10) { transition-delay: 0.45s; }
+
     /* Responsive */
     @media (max-width: 600px) {
       header {
@@ -108,53 +189,66 @@
       main {
         padding: 0 1.5rem 4rem;
       }
+
+      .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        width: 36px;
+        height: 36px;
+      }
     }
   </style>
 </head>
 <body>
 
+  <button class="theme-toggle" aria-label="Toggle dark mode">
+    <span class="icon-moon">&#9790;</span>
+    <span class="icon-sun">&#9788;</span>
+  </button>
+
   <header>
-    <h1>Grounds for Concern</h1>
-    <p>Menu</p>
+    <h1 class="fade-in">Grounds for Concern</h1>
+    <p class="tagline fade-in">alarming amounts of caffeine, served with care</p>
+    <p class="label fade-in">Menu</p>
   </header>
 
   <main>
 
     <!-- Coffee -->
     <section>
-      <h2>Coffee</h2>
+      <h2 class="fade-in">Coffee</h2>
 
-      <div class="menu-item">
+      <div class="menu-item fade-in">
         <div class="item-name">Drip Coffee</div>
         <div class="item-description">Fresh brewed, simple and smooth</div>
       </div>
 
-      <div class="menu-item">
+      <div class="menu-item fade-in">
         <div class="item-name">Espresso</div>
         <div class="item-description">Rich and bold, pulled to order</div>
       </div>
 
-      <div class="menu-item">
+      <div class="menu-item fade-in">
         <div class="item-name">Americano</div>
         <div class="item-description">Espresso with hot water</div>
       </div>
 
-      <div class="menu-item">
+      <div class="menu-item fade-in">
         <div class="item-name">Latte</div>
-        <div class="item-description">Espresso with steamed milk and light foam</div>
+        <div class="item-description">Double espresso with steamed milk and light foam</div>
       </div>
 
-      <div class="menu-item">
+      <div class="menu-item fade-in">
         <div class="item-name">Cappuccino</div>
-        <div class="item-description">Equal parts espresso, steamed milk, and foam</div>
+        <div class="item-description">Equal parts double espresso, steamed milk, and foam</div>
       </div>
 
-      <div class="menu-item">
+      <div class="menu-item fade-in">
         <div class="item-name">Flat White</div>
         <div class="item-description">Double espresso with velvety microfoam</div>
       </div>
 
-      <div class="menu-item">
+      <div class="menu-item fade-in">
         <div class="item-name">Dirty Matcha</div>
         <div class="item-description">Matcha latte with a shot of espresso</div>
       </div>
@@ -162,25 +256,50 @@
 
     <!-- Tea -->
     <section>
-      <h2>Tea</h2>
+      <h2 class="fade-in">Tea</h2>
 
-      <div class="menu-item">
+      <div class="menu-item fade-in">
         <div class="item-name">Matcha Latte</div>
         <div class="item-description">Ceremonial grade matcha with steamed milk</div>
       </div>
 
-      <div class="menu-item">
+      <div class="menu-item fade-in">
         <div class="item-name">Earl Grey</div>
         <div class="item-description">Classic bergamot-infused black tea</div>
       </div>
 
-      <div class="menu-item">
+      <div class="menu-item fade-in">
         <div class="item-name">Jasmine Green Tea</div>
         <div class="item-description">Delicate green tea with jasmine blossoms</div>
       </div>
     </section>
 
   </main>
+
+  <script>
+    // Scroll-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Dark mode toggle
+    const toggle = document.querySelector('.theme-toggle');
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
+
+    toggle.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    });
+  </script>
 
 </body>
 </html>
