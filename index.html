@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grounds for Concern — Menu</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #888888;
+      --border: #ebebeb;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 6rem 2rem 5rem;
+    }
+
+    header h1 {
+      font-weight: 800;
+      font-size: 5rem;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    header p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* Main */
+    main {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 0 2rem 6rem;
+    }
+
+    /* Section */
+    section {
+      margin-bottom: 4rem;
+    }
+
+    section h2 {
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      color: var(--text);
+    }
+
+    /* Menu Item */
+    .menu-item {
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .menu-item:first-of-type {
+      border-top: 1px solid var(--border);
+    }
+
+    .item-name {
+      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .item-description {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 400;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header {
+        padding: 4rem 1.5rem 3rem;
+      }
+
+      header h1 {
+        font-size: 3rem;
+      }
+
+      main {
+        padding: 0 1.5rem 4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Grounds for Concern</h1>
+    <p>Menu</p>
+  </header>
+
+  <main>
+
+    <!-- Coffee -->
+    <section>
+      <h2>Coffee</h2>
+
+      <div class="menu-item">
+        <div class="item-name">Drip Coffee</div>
+        <div class="item-description">Fresh brewed, simple and smooth</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="item-name">Espresso</div>
+        <div class="item-description">Rich and bold, pulled to order</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="item-name">Americano</div>
+        <div class="item-description">Espresso with hot water</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="item-name">Latte</div>
+        <div class="item-description">Espresso with steamed milk and light foam</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="item-name">Cappuccino</div>
+        <div class="item-description">Equal parts espresso, steamed milk, and foam</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="item-name">Flat White</div>
+        <div class="item-description">Double espresso with velvety microfoam</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="item-name">Dirty Matcha</div>
+        <div class="item-description">Matcha latte with a shot of espresso</div>
+      </div>
+    </section>
+
+    <!-- Tea -->
+    <section>
+      <h2>Tea</h2>
+
+      <div class="menu-item">
+        <div class="item-name">Matcha Latte</div>
+        <div class="item-description">Ceremonial grade matcha with steamed milk</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="item-name">Earl Grey</div>
+        <div class="item-description">Classic bergamot-infused black tea</div>
+      </div>
+
+      <div class="menu-item">
+        <div class="item-name">Jasmine Green Tea</div>
+        <div class="item-description">Delicate green tea with jasmine blossoms</div>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+</html>
