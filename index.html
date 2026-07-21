@@ -6,7 +6,7 @@
   <title>Grounds for Concern — Menu</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><path d='M12 44 C12 44 12 24 12 22 C12 18 16 16 20 16 L40 16 C44 16 48 18 48 22 L48 44 C48 52 40 56 30 56 C20 56 12 52 12 44Z' fill='none' stroke='%231a1a1a' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M48 24 C48 24 54 24 56 28 C58 32 54 36 48 36' fill='none' stroke='%231a1a1a' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M24 12 C24 12 24 6 28 4' fill='none' stroke='%231a1a1a' stroke-width='2.5' stroke-linecap='round'/><path d='M32 14 C32 14 32 8 36 6' fill='none' stroke='%231a1a1a' stroke-width='2.5' stroke-linecap='round'/></svg>">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap');
 
     *, *::before, *::after {
       margin: 0;
@@ -15,21 +15,29 @@
     }
 
     :root {
-      --bg: #ffffff;
-      --text: #1a1a1a;
-      --text-muted: #888888;
-      --border: #ebebeb;
-      --hover-bg: #fafafa;
+      --bg: #fbfaf8;
+      --text: #17140f;
+      --text-muted: #8a8378;
+      --border: #ece8e1;
+      --hover-bg: #f4f1ec;
+      --accent: #b06a3b;
+      --accent-soft: #f0e4d8;
+      --card: #ffffff;
       --transition: 0.3s ease;
     }
 
     [data-theme="dark"] {
-      --bg: #111111;
-      --text: #e8e8e8;
-      --text-muted: #777777;
-      --border: #2a2a2a;
-      --hover-bg: #1a1a1a;
+      --bg: #0f0e0c;
+      --text: #ece7df;
+      --text-muted: #7d766b;
+      --border: #262320;
+      --hover-bg: #1a1815;
+      --accent: #d98f5a;
+      --accent-soft: #241a12;
+      --card: #16140f;
     }
+
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -45,11 +53,11 @@
       position: fixed;
       top: 1.5rem;
       right: 1.5rem;
-      background: none;
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -61,7 +69,8 @@
     }
 
     .theme-toggle:hover {
-      transform: scale(1.1);
+      transform: scale(1.1) rotate(-8deg);
+      border-color: var(--accent);
     }
 
     .theme-toggle .icon-sun { display: none; }
@@ -72,61 +81,85 @@
     /* Header */
     header {
       text-align: center;
-      padding: 6rem 2rem 5rem;
+      padding: 7rem 2rem 4rem;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
     }
 
     header h1 {
-      font-weight: 800;
-      font-size: 5rem;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
+      font-size: 5.2rem;
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      margin-bottom: 1.2rem;
     }
 
     .tagline {
       color: var(--text-muted);
-      font-size: 0.95rem;
-      font-weight: 300;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.1rem;
+      font-weight: 400;
       font-style: italic;
-      letter-spacing: 0.02em;
-      margin-bottom: 1.2rem;
+      letter-spacing: 0.01em;
     }
 
-    header p.label {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      font-weight: 400;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
+    .header-rule {
+      width: 44px;
+      height: 2px;
+      background: var(--accent);
+      margin: 2.2rem auto 0;
+      border: none;
     }
 
     /* Main */
     main {
-      max-width: 600px;
+      max-width: 640px;
       margin: 0 auto;
-      padding: 0 2rem 6rem;
+      padding: 0 2rem 7rem;
     }
 
     /* Section */
     section {
-      margin-bottom: 4rem;
+      margin-bottom: 4.5rem;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
     }
 
     section h2 {
-      font-weight: 700;
+      font-weight: 600;
       font-size: 0.8rem;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      margin-bottom: 2rem;
       color: var(--text);
+      white-space: nowrap;
+    }
+
+    .section-head::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border);
     }
 
     /* Menu Item */
     .menu-item {
-      padding: 1.1rem 0.5rem;
+      padding: 1.15rem 0.65rem;
       border-bottom: 1px solid var(--border);
-      border-radius: 4px;
+      border-radius: 6px;
       transition: background-color 0.2s ease, padding-left 0.2s ease;
       cursor: default;
     }
@@ -137,12 +170,13 @@
 
     .menu-item:hover {
       background-color: var(--hover-bg);
-      padding-left: 1rem;
+      padding-left: 1.15rem;
     }
 
     .item-name {
-      font-weight: 500;
-      font-size: 1rem;
+      font-weight: 600;
+      font-size: 1.02rem;
+      letter-spacing: -0.01em;
       margin-bottom: 0.3rem;
     }
 
@@ -150,6 +184,78 @@
       color: var(--text-muted);
       font-size: 0.85rem;
       font-weight: 400;
+    }
+
+    /* Specials */
+    .specials {
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 2.2rem 2rem 2.4rem;
+      transition: background-color var(--transition), border-color var(--transition);
+    }
+
+    .specials .section-head { margin-bottom: 1.6rem; }
+    .specials h2 { color: var(--accent); }
+    .specials .section-head::after { background: var(--accent); opacity: 0.35; }
+
+    .special-card {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.9rem;
+    }
+
+    .special-name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 500;
+      font-size: 1.7rem;
+      letter-spacing: -0.01em;
+    }
+
+    .special-badge {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--bg);
+      background: var(--accent);
+      padding: 0.28rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    .special-description {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.4rem;
+      max-width: 34rem;
+    }
+
+    .special-ingredients {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .ingredient {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 0 2rem 4rem;
+      color: var(--text-muted);
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
     }
 
     /* Scroll animations */
@@ -164,7 +270,6 @@
       transform: translateY(0);
     }
 
-    /* Stagger delays */
     .menu-item:nth-child(1) { transition-delay: 0s; }
     .menu-item:nth-child(2) { transition-delay: 0.05s; }
     .menu-item:nth-child(3) { transition-delay: 0.1s; }
@@ -173,28 +278,34 @@
     .menu-item:nth-child(6) { transition-delay: 0.25s; }
     .menu-item:nth-child(7) { transition-delay: 0.3s; }
     .menu-item:nth-child(8) { transition-delay: 0.35s; }
-    .menu-item:nth-child(9) { transition-delay: 0.4s; }
-    .menu-item:nth-child(10) { transition-delay: 0.45s; }
 
     /* Responsive */
     @media (max-width: 600px) {
       header {
-        padding: 4rem 1.5rem 3rem;
+        padding: 5rem 1.5rem 3rem;
       }
 
       header h1 {
-        font-size: 3rem;
+        font-size: 3.2rem;
       }
 
       main {
         padding: 0 1.5rem 4rem;
       }
 
+      .specials {
+        padding: 1.8rem 1.4rem 2rem;
+      }
+
+      .special-name {
+        font-size: 1.45rem;
+      }
+
       .theme-toggle {
         top: 1rem;
         right: 1rem;
-        width: 36px;
-        height: 36px;
+        width: 38px;
+        height: 38px;
       }
     }
   </style>
@@ -207,16 +318,36 @@
   </button>
 
   <header>
+    <span class="eyebrow fade-in">Est. Anxiously</span>
     <h1 class="fade-in">Grounds for Concern</h1>
     <p class="tagline fade-in">alarming amounts of caffeine, served with care</p>
-    <p class="label fade-in">Menu</p>
+    <hr class="header-rule fade-in">
   </header>
 
   <main>
 
+    <!-- Specials -->
+    <section class="specials fade-in">
+      <div class="section-head">
+        <h2>Specials</h2>
+      </div>
+
+      <div class="special-card">
+        <span class="special-name">Salty Canadian</span>
+        <span class="special-badge">New</span>
+      </div>
+      <p class="special-description">A rich shot of espresso whipped with butter, sweetened with maple syrup and finished with a pinch of salt — silky, sweet, and just savory enough to keep you honest.</p>
+      <div class="special-ingredients">
+        <span class="ingredient">Espresso</span>
+        <span class="ingredient">Butter</span>
+        <span class="ingredient">Maple Syrup</span>
+        <span class="ingredient">Salt</span>
+      </div>
+    </section>
+
     <!-- Coffee -->
     <section>
-      <h2 class="fade-in">Coffee</h2>
+      <div class="section-head"><h2>Coffee</h2></div>
 
       <div class="menu-item fade-in">
         <div class="item-name">Drip Coffee</div>
@@ -256,7 +387,7 @@
 
     <!-- Tea -->
     <section>
-      <h2 class="fade-in">Tea</h2>
+      <div class="section-head"><h2>Tea</h2></div>
 
       <div class="menu-item fade-in">
         <div class="item-name">Matcha Latte</div>
@@ -275,6 +406,10 @@
     </section>
 
   </main>
+
+  <footer>
+    <p class="fade-in">Grounds for Concern · open daily until the jitters set in</p>
+  </footer>
 
   <script>
     // Scroll-in animations
